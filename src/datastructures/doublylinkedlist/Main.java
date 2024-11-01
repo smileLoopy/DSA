@@ -98,23 +98,39 @@ public class Main {
 //
 //        */
 
-        DoublyLinkedList myDLL = new DoublyLinkedList(2);
-        myDLL.append(1);
+//        DoublyLinkedList myDLL = new DoublyLinkedList(2);
+//        myDLL.append(1);
+//
+//        // (2) Items - Returns 2 Node
+//        System.out.println(myDLL.removeFirst().value);
+//        // (1) Item - Returns 1 Node
+//        System.out.println(myDLL.removeFirst().value);
+//        // (0) Items - Returns null
+//        System.out.println(myDLL.removeFirst());
+//
+//
+//        /*
+//            EXPECTED OUTPUT:
+//            ----------------
+//            2
+//            1
+//            null
+//
+//        */
 
-        // (2) Items - Returns 2 Node
-        System.out.println(myDLL.removeFirst().value);
-        // (1) Item - Returns 1 Node
-        System.out.println(myDLL.removeFirst().value);
-        // (0) Items - Returns null
-        System.out.println(myDLL.removeFirst());
+        DoublyLinkedList myDLL = new DoublyLinkedList(0);
+        myDLL.append(1);
+        myDLL.append(2);
+        myDLL.append(3);
+
+
+        System.out.println(myDLL.get(3).value);
 
 
         /*
             EXPECTED OUTPUT:
             ----------------
-            2
-            1
-            null
+            3
 
         */
 
