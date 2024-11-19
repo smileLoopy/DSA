@@ -98,4 +98,38 @@ public class BinarySearchTree {
         return results;
     }
 
+    public ArrayList<Integer> DFSPreOrder() {
+        // Create an ArrayList to store the node values in the traversal order
+        ArrayList<Integer> results = new ArrayList<>();
+
+        // Define a local inner class named Traverse for recursive traversal
+        class Traverse {
+            // Constructor for Traverse class taking a Node as an argument
+            Traverse(Node currentNode) {
+                // Add the current node's value to the results list
+                results.add(currentNode.value);
+
+                // If the current node has a left child, recursively
+                // traverse the left subtree
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+
+                // If the current node has a right child, recursively
+                // traverse the right subtree
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+
+        // Start the pre-order traversal by creating a new
+        // instance of Traverse with the root node
+        new Traverse(root);
+
+        // Return the results list containing the node values
+        // in the pre-order traversal order
+        return results;
+    }
+
 }
