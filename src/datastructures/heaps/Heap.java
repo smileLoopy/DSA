@@ -43,28 +43,36 @@ public class Heap {
         }
     }
 
-    // We will be writing the sinkDown method in the next exercise.
-    // But I need to include it here for the tests to work for remove.
-    // So, don't peek at this one here.  :-)
-
     private void sinkDown(int index) {
+        // Start at the provided index (this is typically the root)
         int maxIndex = index;
+
+        // Continue sinking down until the element at maxIndex is correctly positioned
         while (true) {
+            // Get indices of left and right children
             int leftIndex = leftChild(index);
             int rightIndex = rightChild(index);
 
+            // If left child exists and is greater than the current max,
+            // then update maxIndex to left child's index
             if (leftIndex < heap.size() && heap.get(leftIndex) > heap.get(maxIndex)) {
                 maxIndex = leftIndex;
             }
 
+            // If right child exists and is greater than the current max,
+            // then update maxIndex to right child's index
             if (rightIndex < heap.size() && heap.get(rightIndex) > heap.get(maxIndex)) {
                 maxIndex = rightIndex;
             }
 
+            // If maxIndex has changed (i.e., one of the children was greater),
+            // then swap the current element with the larger child and continue sinking down
             if (maxIndex != index) {
                 swap(index, maxIndex);
                 index = maxIndex;
             } else {
+                // If the element has not been swapped, this means it's in the correct position,
+                // so we break the loop and end the method
                 return;
             }
         }
