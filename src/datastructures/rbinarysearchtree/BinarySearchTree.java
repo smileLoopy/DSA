@@ -110,4 +110,41 @@ public class BinarySearchTree {
         // Return the value of the leftmost node
         return currentNode.value;
     }
+
+    private Node deleteNode(Node currentNode, int value) {
+        // Base case, tree is empty
+        if (currentNode == null) return null;
+
+        // Recurse down the tree
+        if (value < currentNode.value) {
+            // If less, go left
+            currentNode.left = deleteNode(currentNode.left, value);
+        } else if (value > currentNode.value) {
+            // If more, go right
+            currentNode.right = deleteNode(currentNode.right, value);
+        } else {
+            // Value is same as current's value, node to delete
+            if (currentNode.left == null && currentNode.right == null) {
+                // Node is a leaf node
+                return null;
+            } else if (currentNode.left == null) {
+                // Node has only right child
+                currentNode = currentNode.right;
+            } else if (currentNode.right == null) {
+                // Node has only left child
+                currentNode = currentNode.left;
+            } else {
+                // Node has two children
+                int subTreeMin = minValue(currentNode.right);
+                // Replace with min in right subtree
+                currentNode.value = subTreeMin;
+                // Delete the minimum in right subtree
+                currentNode.right = deleteNode(currentNode.right, subTreeMin);
+            }
+        }
+        // Return the modified tree
+        return currentNode;
+    }
+
+    public void deleteNode(int value) { root = deleteNode(root, value); }
 }
