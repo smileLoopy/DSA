@@ -132,4 +132,31 @@ public class BinarySearchTree {
         return results;
     }
 
+    public ArrayList<Integer> DFSPostOrder() {
+        // Initialize an empty ArrayList to store the post-order traversal result
+        ArrayList<Integer> results = new ArrayList<>();
+
+        // Define an inner class Traverse to perform the post-order traversal recursively
+        class Traverse {
+            // Constructor takes a Node as input and performs the traversal
+            Traverse(Node currentNode) {
+                // Recursively traverse the left subtree if the left child exists
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+                // Recursively traverse the right subtree if the right child exists
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+                // After traversing left and right subtrees, add the current node value to the results list
+                results.add(currentNode.value);
+            }
+        }
+
+        // Start the traversal with the root node of the tree
+        new Traverse(root);
+        // Return the post-order traversal result as an ArrayList of integers
+        return results;
+    }
+
 }
