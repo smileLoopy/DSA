@@ -46,6 +46,28 @@ public class Main {
 //
 //        */
 
+//        BinarySearchTree myBST = new BinarySearchTree();
+//
+//        myBST.insert(47);
+//        myBST.insert(21);
+//        myBST.insert(76);
+//        myBST.insert(18);
+//        myBST.insert(27);
+//        myBST.insert(52);
+//        myBST.insert(82);
+//
+//        System.out.println("DFS PostOrder:");
+//        System.out.println( myBST.DFSPostOrder() );
+//
+//        /*
+//            EXPECTED OUTPUT:
+//            ----------------
+//            DFS PostOrder:
+//            [18, 27, 21, 52, 82, 76, 47]
+//
+//        */
+
+
         BinarySearchTree myBST = new BinarySearchTree();
 
         myBST.insert(47);
@@ -56,14 +78,14 @@ public class Main {
         myBST.insert(52);
         myBST.insert(82);
 
-        System.out.println("DFS PostOrder:");
-        System.out.println( myBST.DFSPostOrder() );
+        System.out.println("DFS InOrder:");
+        System.out.println( myBST.DFSInOrder() );
 
         /*
             EXPECTED OUTPUT:
             ----------------
-            DFS PostOrder:
-            [18, 27, 21, 52, 82, 76, 47]
+            DFS InOrder:
+            [18, 21, 27, 47, 52, 76, 82]
 
         */
     }

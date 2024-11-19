@@ -159,4 +159,32 @@ public class BinarySearchTree {
         return results;
     }
 
+    public ArrayList<Integer> DFSInOrder() {
+        // Create an ArrayList to store the in-order traversal results
+        ArrayList<Integer> results = new ArrayList<>();
+
+        // Define a nested class Traverse to perform the in-order traversal
+        class Traverse {
+            // Constructor for the Traverse class
+            Traverse(Node currentNode) {
+                // If the current node has a left child, explore the left subtree
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+                // Add the current node's value to the results list
+                results.add(currentNode.value);
+                // If the current node has a right child, explore the right subtree
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+
+        // Start the in-order traversal by creating a new Traverse object with the root node
+        new Traverse(root);
+
+        // Return the ArrayList containing the in-order traversal results
+        return results;
+    }
+
 }
