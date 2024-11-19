@@ -45,27 +45,42 @@ public class MinHeap {
 
 
     private void sinkDown(int index) {
+        // Start with the current index node as the minIndex
         int minIndex = index;
+
+        // Continuously sink down the node until it's in the correct position
         while (true) {
+
+            // Find indices of left and right children
             int leftIndex = leftChild(index);
             int rightIndex = rightChild(index);
 
+            // If left child exists and is smaller than the current min, update minIndex
             if (leftIndex < heap.size() && heap.get(leftIndex) < heap.get(minIndex)) {
                 minIndex = leftIndex;
             }
 
+            // If right child exists and is smaller than the current min, update minIndex
             if (rightIndex < heap.size() && heap.get(rightIndex) < heap.get(minIndex)) {
                 minIndex = rightIndex;
             }
 
+            // If the minIndex is not equal to the index, it means one of the child nodes is
+            // smaller than the current node and we need to swap them
             if (minIndex != index) {
                 swap(index, minIndex);
+
+                // The index now becomes the minIndex (position of child node we swapped with)
                 index = minIndex;
-            } else {
+            }
+            // If the minIndex is still equal to the index, it means the current node is smaller
+            // than its children, so it's in the correct position and we can exit the loop
+            else {
                 return;
             }
         }
     }
+
 
     public Integer remove() {
         if (heap.size() == 0) {
