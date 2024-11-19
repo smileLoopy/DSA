@@ -101,4 +101,13 @@ public class BinarySearchTree {
         if (root == null) root = new Node(value);
         rInsert(root, value);
     }
+
+    public int minValue(Node currentNode) {
+        // Traverse left subtree until null is encountered
+        while (currentNode.left != null) {
+            currentNode = currentNode.left;
+        }
+        // Return the value of the leftmost node
+        return currentNode.value;
+    }
 }
