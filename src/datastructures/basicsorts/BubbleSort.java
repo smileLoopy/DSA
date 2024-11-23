@@ -1,4 +1,4 @@
-package datastructures.bubblesort;
+package datastructures.basicsorts;
 
 import java.util.Arrays;
 
